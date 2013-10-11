@@ -15,10 +15,10 @@ def displayPathtoPrincess(n,grid)
     moves = ""
     
     until p == m
+        m.y -= 1 and moves << "UP\n" if m.y > p.y 
         m.x += 1 and moves << "RIGHT\n" if m.x < p.x
-        m.x -= 1 and moves << "LEFT\n" if m.x > p.x
         m.y += 1 and moves << "DOWN\n" if m.y < p.y
-        m.y -= 1 and moves << "UP\n" if m.y > p.y  
+        m.x -= 1 and moves << "LEFT\n" if m.x > p.x
     end
     
     return moves
