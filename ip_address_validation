@@ -1,0 +1,16 @@
+ipv4 = -> s { s =~ /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/ }
+# I do concede that I don't know a dang thing about IPv6...
+ipv6 = -> s { s.downcase =~ /^([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}$/}
+
+n = gets.chomp.to_i
+
+n.times do
+    line = gets.chomp.rstrip
+    if ipv4[line]
+        puts "IPv4"
+    elsif ipv6[line]
+        puts "IPv6"
+    else
+        puts "Neither"
+    end
+end
